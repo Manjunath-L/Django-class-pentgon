@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    {% if c > '0' and c < '9' %}
+    <p>{{ c }} is a digit.</p>
+    {% elif c >= 'A' and c <= 'Z' %}
+    <p>{{ c }} is an uppercase letter.</p>
+    {% elif c >= 'a' and c <= 'z' %}
+    <p>{{ c }} is a lowercase letter.</p>
+    {% else %}
+    <p>{{ c }} is a special caracter.</p>
+    {% endif %}
+  </body>
+</html>

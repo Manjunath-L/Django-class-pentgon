@@ -65,3 +65,18 @@ def upper_case(request, c):
 def even_or_odd(request, n):
     context = {"n": n}
     return render(request, "ifelse.html", context)
+
+
+def vowles(request, c):
+    context = {"c": c, "vowels": "aeiouAEIOU"}
+    return render(request, "vowels.html", context)
+
+
+def count_digits(request, n):
+    context = {"n": n}
+    return render(request, "count_number.html", context)
+
+
+def type_of_char(request, c):
+    context = {"c": c}
+    return render(request, "type_of_char.html", context)

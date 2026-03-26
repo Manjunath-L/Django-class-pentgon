@@ -70,7 +70,13 @@ def is_palindrome(value):
 
 @register.filter
 def is_even(value):
-    try:
-        return int(value) % 2 == 0
-    except (ValueError, TypeError):
-        return False
+    return int(value) % 2 == 0
+
+@register.filter
+def count_digits(value):
+    count = 0
+    while value > 0:
+        value //= 10
+        count += 1
+    return count
+
