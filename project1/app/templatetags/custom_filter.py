@@ -67,3 +67,10 @@ def count_words(value):
 def is_palindrome(value):
     cleaned = "".join(value.split()).lower()
     return cleaned == cleaned[::-1]
+
+@register.filter
+def is_even(value):
+    try:
+        return int(value) % 2 == 0
+    except (ValueError, TypeError):
+        return False
