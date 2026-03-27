@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year Check</title>
+</head>
+
+<body>
+    <h2>Year: {{ year }}</h2>
+
+    {% if year|divisibleby:"4" %}
+    {% if year|divisibleby:"100" %}
+    {% if year|divisibleby:"400" %}
+    <p>{{ year }} is a Leap Year</p>
+    {% else %}
+    <p>{{ year }} is Not a Leap Year</p>
+    {% endif %}
+    {% else %}
+    <p>{{ year }} is a Leap Year</p>
+    {% endif %}
+    {% else %}
+    <p>{{ year }} is Not a Leap Year</p>
+    {% endif %}
+
+    {%for i in "Manjunath L"%}
+   {{i}}
+    {% endfor %}
+</body>
+
+</html>

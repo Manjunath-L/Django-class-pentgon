@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Django If Conditions</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background-color: #fafafa;
+        }
+
+        h1 {
+            margin-top: 40px;
+            color: #333;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .box {
+            border: 1px solid #ddd;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            background-color: #fff;
+        }
+
+        .pass {
+            color: green;
+        }
+
+        .fail {
+            color: red;
+        }
+
+        .info {
+            color: #333;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>IF Examples</h1>
+
+    <div class="box">
+        {% if marks > 40 %}
+        <p class="pass">You passed.</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if age >= 18 %}
+        <p class="info">You are an adult.</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if c in vowels %}
+        <p class="info">{{c}} is a vowel.</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if number > 0 %}
+        <p class="info">Number is positive.</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if username %}
+        <p class="info">Welcome {{username}}</p>
+        {% endif %}
+    </div>
+
+
+    <h1>IF ELSE Examples</h1>
+
+    <div class="box">
+        {% if marks > 40 %}
+        <p class="pass">Pass</p>
+        {% else %}
+        <p class="fail">Fail</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if number|divisibleby:2 %}
+        <p class="pass">Even</p>
+        {% else %}
+        <p class="fail">Odd</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if age >= 18 %}
+        <p class="pass">Adult</p>
+        {% else %}
+        <p class="fail">Minor</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if c in vowels %}
+        <p class="pass">Vowel</p>
+        {% else %}
+        <p class="fail">Consonant</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if username %}
+        <p class="pass">Logged in</p>
+        {% else %}
+        <p class="fail">Please log in</p>
+        {% endif %}
+    </div>
+
+
+    <h1>IF ELIF ELSE Examples</h1>
+
+    <div class="box">
+        {% if marks >= 75 %}
+        <p class="pass">Grade A</p>
+        {% elif marks >= 50 %}
+        <p class="info">Grade B</p>
+        {% else %}
+        <p class="fail">Grade C</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if number > 0 %}
+        <p class="pass">Positive</p>
+        {% elif number < 0 %} <p class="fail">Negative</p>
+            {% else %}
+            <p class="info">Zero</p>
+            {% endif %}
+    </div>
+
+    <div class="box">
+        {% if age < 13 %} <p class="fail">Child</p>
+            {% elif age < 20 %} <p class="info">Teenager</p>
+                {% else %}
+                <p class="pass">Adult</p>
+                {% endif %}
+    </div>
+
+    <div class="box">
+        {% if temp > 30 %}
+        <p class="fail">Hot</p>
+        {% elif temp > 20 %}
+        <p class="info">Warm</p>
+        {% else %}
+        <p class="pass">Cold</p>
+        {% endif %}
+    </div>
+
+    <div class="box">
+        {% if salary > 50000 %}
+        <p class="pass">High Salary</p>
+        {% elif salary > 20000 %}
+        <p class="info">Medium Salary</p>
+        {% else %}
+        <p class="fail">Low Salary</p>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>

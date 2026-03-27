@@ -68,9 +68,11 @@ def is_palindrome(value):
     cleaned = "".join(value.split()).lower()
     return cleaned == cleaned[::-1]
 
+
 @register.filter
 def is_even(value):
     return int(value) % 2 == 0
+
 
 @register.filter
 def count_digits(value):
@@ -79,4 +81,3 @@ def count_digits(value):
         value //= 10
         count += 1
     return count
-

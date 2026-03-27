@@ -11,4 +11,7 @@ urlpatterns = [
     path("vowels/<str:c>", views.vowles, name="vowels"),
     path("count_digits/<int:n>", views.count_digits, name="count_digits"),
     path("type_of_char/<str:c>", views.type_of_char, name="type_of_char"),
+    path("assignment/", views.assignment, name="assignment_page"),
+    path("leep_year/<int:year>", views.leep_year, name="leep_year"),
+    path("employees/", views.employess, name="employees")
 ]
