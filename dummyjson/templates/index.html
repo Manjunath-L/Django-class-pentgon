@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -9,7 +9,7 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f6f8;
-            padding: 20px;
+            padding: 10px;
         }
 
         table {
@@ -71,7 +71,7 @@
         <tr>
             <td>{{user.id}}</td>
             <td>{{ user.firstName }} {{ user.lastName }}</td>
-            <td><img src="{{user.image}}" alt=""></td>
+            <td><img src="{{user.image}}" alt="user image"></td>
             <td>{{ user.email }}</td>
             <td>{{ user.phone }}</td>
             <td>{{user.age}}</td>
@@ -85,6 +85,67 @@
         </tr>
         {% endfor %}
     </table>
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f8;
+            padding: 20px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .product-card {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            color: #c92727;
+        }
+
+        .review {
+            color: #12ff16;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <img src="{{ product.thumbnail }}" alt="{{ product.title }}" width="200">
+            <h3>{{ product.title }}</h3>
+            <p>Price: ${{ product.price }}</p>
+            <span>Rating: {{ product.rating }}</span>
+            <span class="review">({{product.reviews|length}})</span>
+        </div>
+        {% endfor %}
+    </div>
 </body>
 
 </html>
