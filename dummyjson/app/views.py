@@ -30,3 +30,22 @@ def product_data(request):
     print(type(json_data), "json_data")
     print(type(py_data), "python_data")
     return render(request, "index.html", context)
+
+
+# def product_detail(request, product_id):
+#     product = None
+#     for p in py_data["products"]:
+#         if p["id"] == product_id:
+#             product = p
+#     if product:
+#         context = {"product": product}
+#         return render(request, "product_detail.html", context)
+
+products = py_data["products"]
+
+
+def product_detail(request, product_id):
+    context = {
+        "product": products[product_id - 1]
+    }  # Assuming product IDs start from 1 and are sequential
+    return render(request, "product_detail.html", context)

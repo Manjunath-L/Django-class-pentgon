@@ -131,21 +131,61 @@
         .review {
             color: #12ff16;
         }
+
+        h1 {
+            text-align: center;
+            text-decoration: underline;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height: 60px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
     </style>
 </head>
 
 <body>
+    <nav>
+        <h1>My Store</h1>
+    </nav>
     <div class="product-grid">
         {% for product in products %}
         <div class="product-card">
             <img src="{{ product.thumbnail }}" alt="{{ product.title }}" width="200">
-            <h3>{{ product.title }}</h3>
+            <a href="{% url 'product_detail' product.id %}" ">
+            <!-- <a href=" /product_detail/{{ product.id }}"> / without it will append to the current URL -->
+                <h3>{{ product.title }}</h3>
+            </a>
             <p>Price: ${{ product.price }}</p>
             <span>Rating: {{ product.rating }}</span>
-            <span class="review">({{product.reviews|length}})</span>
+            <span class=" review">({{product.reviews|length}})</span><br>
+            <button type="button">Add to Cart</button>
         </div>
         {% endfor %}
-    </div>
+        <nav>
+
+            <p>&copy; 2024 My Store. All rights reserved.</p>
+        </nav>
+        </footer>
 </body>
 
 </html>

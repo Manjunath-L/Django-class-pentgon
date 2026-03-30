@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .continer {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            height: 60px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h1>My Store</h1>
+    </nav>
+    <div class="continer">
+        <h1>Product Details</h1>
+        <img src="{{product.thumbnail}}" alt="{{product.title}}">
+        <p><strong>Title:</strong> {{ product.title }}</p>
+        <p><strong>Description:</strong> {{ product.description }}</p>
+        <p><strong>Price:</strong> ${{ product.price }}</p>
+        <p><strong>Rating:</strong> {{ product.rating }}</p>
+        <p><strong>Category:</strong> {{ product.category }}</p>
+    </div>
+    <footer>
+        <p>&copy; 2024 My Store. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
