@@ -22,3 +22,7 @@ def recipe_detail(request, recipe_id: int):
         raise Http404("Recipe not found")
     context = {"recipe": recipe}
     return render(request, "recipe_detail.html", context)
+
+
+def demo(request):
+    return render(request, "demo.html")
