@@ -1,53 +1,35 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
+<!doctype html>
 {% load static %}
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe List</title>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
-    <style>
-       
-    </style>
-</head>
+    <style></style>
+  </head>
 
-<body>
-    <header class="site-header">
-        <div class="site-header-inner">
-            <div class="brand">Recipe App</div>
-            <nav class="nav-links">
-                <a href="{% url 'recipe_list' %}">Home</a>
-            </nav>
-        </div>
-    </header>
-
+  <body>
+    {% block content %}
     <div class="page">
-        <h1>All Recipes</h1>
+      <h1>All Recipes</h1>
 
-        {% if recipes %}
-        <ul class="recipe-list">
-            {% for recipe in recipes %}
-            <li class="recipe-card">
-                <a href="{% url 'recipe_detail' recipe.id %}">
-                    {{ recipe.name }}
-                </a>
-                <div class="meta">
-                    {{ recipe.cuisine }} &middot;
-                    Rating: {{ recipe.rating }} /
-                    Servings: {{ recipe.servings }}
-                </div>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p class="empty-state">No recipes found.</p>
-        {% endif %}
+      {% if recipes %}
+      <ul class="recipe-list">
+        {% for recipe in recipes %}
+        <li class="recipe-card">
+          <a href="{% url 'recipe_detail' recipe.id %}"> {{ recipe.name }} </a>
+          <div class="meta">
+            {{ recipe.cuisine }} &middot; Rating: {{ recipe.rating }} /
+            Servings: {{ recipe.servings }}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p class="empty-state">No recipes found.</p>
+      {% endif %}
     </div>
-
-    <footer class="site-footer">
-        &copy; {% now "Y" %} Recipe App. All rights reserved.
-    </footer>
-</body>
-
+    {% endblock %}
+  </body>
 </html>

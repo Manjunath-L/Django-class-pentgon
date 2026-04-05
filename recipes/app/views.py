@@ -26,3 +26,12 @@ def recipe_detail(request, recipe_id: int):
 
 def demo(request):
     return render(request, "demo.html")
+
+
+def TemplateInheritance(request):
+    return render(request, "home.html")
+
+
+def category(request):
+    recipes = py_data.get("recipes", [])
+    return render(request, "category.html", {"recipes": recipes})

@@ -1,3 +1,4 @@
+{% extends "base.html" %}
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
@@ -6,22 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ recipe.name }}</title>
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <style>
 
     </style>
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="site-header-inner">
-            <div class="brand">Recipe App</div>
-            <nav class="nav-links">
-                <a href="{% url 'recipe_list' %}">Home</a>
-            </nav>
-        </div>
-    </header>
 
+    {% block content %}
     <div class="page">
         <a href="{% url 'recipe_list' %}" class="back-link">← Back to all recipes</a>
 
@@ -55,10 +48,7 @@
             {% endfor %}
         </ol>
     </div>
-
-    <footer class="site-footer">
-        &copy; {% now "Y" %} Recipe App. All rights reserved.
-    </footer>
+    {% endblock %}
 </body>
 
 </html>
