@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Projects — Portfolio{% endblock %}
+
+{% block content %}
+<section class="section page-header">
+    <h1>Projects</h1>
+    <p>A collection of things I've built.</p>
+</section>
+
+<section class="section">
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="tags">
+                {% for tag in project.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+            {% if project.link %}
+            <a href="{{ project.link }}" class="project-link">View &rarr;</a>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

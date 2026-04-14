@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Home — Portfolio{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Hi, I'm <span class="accent">Manjunath L</span></h1>
+    <p class="tagline">Software developer </p>
+    <div class="hero-links">
+        <a href="{% url 'projects' %}" class="btn">View Projects</a>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<section class="section">
+    <h2>Recent Projects</h2>
+    <div class="project-grid">
+        {% for project in projects %}
+        <div class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="tags">
+                {% for tag in project.tags %}
+                <span class="tag">{{ tag }}</span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <p class="see-all"><a href="{% url 'projects' %}">See all projects &rarr;</a></p>
+</section>
+{% endblock %}

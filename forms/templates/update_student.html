@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form-Student</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">RollNo:</label>
+        <input type="number" name="rollno" id="" value="{{student.rollno}}" /><br />
+        <label for="">Name:</label>
+        <input type="text" name="name" id="" value="{{student.name}}" /><br />
+        <label for="">Std:</label>
+        <input type="number" name="std" id="" value="{{student.std}}" /><br />
+        <label for="">Sec:</label>
+        <input type="text" name="sec" id="" value="{{student.sec}}" /><br />
+        <label for="">Gender:</label>
+        <input type="radio" name="gender" value="{{student.gender}}" />male
+        <input type="radio" name="gender" value="{{student.gender}}" />female
+        <br />
+        <input type="submit" value="update" />
+    </form>
+</body>
+
+</html>

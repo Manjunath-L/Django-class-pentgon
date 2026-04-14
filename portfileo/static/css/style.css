@@ -1,0 +1,158 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  max-width: 50%;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header a {
+  color: #222;
+  font-weight: bold;
+}
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+nav a {
+
+  font-size: 0.9rem;
+}
+nav a.active,
+nav a:hover {
+  color: #222;
+  text-decoration: none;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+h2 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+p {
+
+  margin-bottom: 0.75rem;
+}
+
+.hero {
+  padding: 3rem 0;
+}
+.hero h1 {
+  font-size: 2.2rem;
+}
+.hero p {
+  font-size: 1.05rem;
+}
+.hero-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.btn {
+  padding: 0.5rem 1.2rem;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+.btn:hover {
+  opacity: 0.85;
+  text-decoration: none;
+}
+.btn-outline {
+  background: none;
+  border: 1px solid #ddd;
+}
+.accent {
+  color: #2563eb;
+}
+
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.skills-list li {
+  border: 1px solid #ddd;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+
+}
+
+.project-card {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.5rem;
+}
+.tag {
+  background: #f0f4ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 4px;
+}
+.contact-links {
+  list-style: none;
+}
+.contact-links li {
+  display: flex;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  font-size: 0.9rem;
+}
+.contact-label {
+  width: 65px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 1.5rem 0;
+  text-align: center;
+
+  font-size: 0.85rem;
+  margin-top: 2rem;
+}

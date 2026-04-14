@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}About — Portfolio{% endblock %}
+
+{% block content %}
+<section class="section page-header">
+    <h1>About Me</h1>
+</section>
+
+<section class="section">
+    <div class="about-content">
+        <div class="about-text">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus repellendus iure debitis beatae, ipsam
+                exercitationem incidunt illo delectus aliquid quos vero dicta iste magnam rem saepe perferendis impedit?
+                Voluptatibus, asperiores.</p>
+            <p>Feel free to <a href="{% url 'contact' %}">reach out</a> if you'd like to work together or just say hi.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}

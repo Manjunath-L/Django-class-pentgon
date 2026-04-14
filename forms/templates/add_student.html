@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form-Student</title>
+  </head>
+  <body>
+    <form action="" method="post">
+      {% csrf_token %}
+      <label for="">RollNo:</label>
+      <input type="number" name="rollno" id="" /><br />
+      <label for="">Name:</label>
+      <input type="text" name="name" id="" /><br />
+      <label for="">Std:</label>
+      <input type="number" name="std" id="" /><br />
+      <label for="">Sec:</label>
+      <input type="text" name="sec" id="" /><br />
+      <label for="">Gender:</label>
+      <input type="radio" name="gender" value="male" id="" />male
+      <input type="radio" name="gender" value="female" id="" />female <br />
+      <input type="submit" value="add" />
+    </form>
+  </body>
+</html>

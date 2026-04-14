@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        /* table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        } */
+    </style>
+</head>
+
+<body>
+    <table border="3">
+        <tr>
+            <th>Id</th>
+            <th>Roll_NO</th>
+            <th>Name</th>
+            <th>Std</th>
+            <th>Sec</th>
+            <th>Gender</th>
+            <th></th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.rollno}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.std}}</td>
+            <td>{{s.sec}}</td>
+            <td>{{s.gender}}</td>
+            <td><a href="{% url 'app:update_student' s.id %}"><button>update</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{% url 'app:add_student' %}">
+        <button>Add Student</button>
+    </a>
+</body>
+
+</html>
