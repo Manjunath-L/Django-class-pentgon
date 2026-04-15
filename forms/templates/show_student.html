@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        /* table,
-        tr,
+        table {
+            width: 80%;
+            border-collapse: collapse;
+        }
+
         th,
         td {
-            border: 1px solid black;
-        } */
+            padding: 8px;
+            text-align: left;
+        }
     </style>
 </head>
 
@@ -24,7 +28,7 @@
             <th>Std</th>
             <th>Sec</th>
             <th>Gender</th>
-            <th></th>
+            <th colspan="2">Actions</th>
         </tr>
         {% for s in students %}
         <tr>
@@ -35,6 +39,7 @@
             <td>{{s.sec}}</td>
             <td>{{s.gender}}</td>
             <td><a href="{% url 'app:update_student' s.id %}"><button>update</button></a></td>
+            <td><a href="{% url 'app:delete_student' s.id %}"><button>delete</button></a></td>
         </tr>
         {% endfor %}
     </table>

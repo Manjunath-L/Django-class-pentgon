@@ -48,3 +48,12 @@ def update_student(request, pk):
         return redirect("app:show_student")
     context = {"student": stu}
     return render(request, "update_student.html", context)
+
+
+def delete_student(request, pk):
+    stu = Student.objects.get(pk=pk)
+    if request.method == "POST":
+        stu.delete()
+        return redirect("app:show_student")
+    context = {"student": stu}
+    return render(request, "delete_student.html", context)

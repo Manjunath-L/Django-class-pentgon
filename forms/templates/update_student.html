@@ -19,8 +19,8 @@
         <label for="">Sec:</label>
         <input type="text" name="sec" id="" value="{{student.sec}}" /><br />
         <label for="">Gender:</label>
-        <input type="radio" name="gender" value="{{student.gender}}" />male
-        <input type="radio" name="gender" value="{{student.gender}}" />female
+        <input type="radio" name="gender" value="male" {% if student.gender == "male" %}checked{% endif %} />male
+        <input type="radio" name="gender" value="female" {% if student.gender == "female" %}checked{% endif %} />female
         <br />
         <input type="submit" value="update" />
     </form>
