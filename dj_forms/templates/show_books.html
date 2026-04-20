@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+
+        .alert-error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% for message in messages %}
+    <div class="alert-{{ message.tags }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publisher</th>
+            <th>Publication Date</th>
+            <th>Price</th>
+            <th>Actions</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.id }}</td>
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.publication_date }}</td>
+            <td>{{ book.price }}</td>
+            <td>
+                <a href="{% url 'lib:update_book' book.id %}"> <button>Update</button></a> |
+                <a href="{% url 'lib:delete_book' book.id %}"> <button>Delete</button></a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'lib:add_book' %}"> <button>Add Book</button></a>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/add_emp.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add EMP</title>
+    <style>
+        .top-bar {
+            margin-bottom: 20px;
+        }
+
+        .show-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-bar">
+        <a href="{% url 'app:show_emp' %}" class="show-btn">Show All Employees</a>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="deptno">Dept No:</label>
+        <input type="number" id="deptno" name="deptno" required><br><br>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="date_of_join">Date of join:</label>
+        <input type="date" id="date_of_join" name="date_of_join" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="salary">Salary:</label>
+        <input type="number" id="salary" name="salary" required><br><br>
+        <label for="department">Department:</label>
+        <input type="text" id="department" name="department" required><br><br>
+        <input type="submit" value="Add Employee">
+    </form>
+</body>
+
+</html>
