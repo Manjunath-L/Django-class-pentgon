@@ -3,28 +3,28 @@
 {% block title %}Students | Student Course Registration{% endblock %}
 
 {% block content %}
-<div class="panel p-4 p-lg-5 mb-4">
+<div class="card shadow-sm p-4 p-lg-5 mb-4">
     <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-3 mb-4">
         <div>
-            <p class="text-uppercase small text-muted-soft mb-2">Student records</p>
+            <p class="text-uppercase small text-muted mb-2">Student records</p>
             <h1 class="fw-bold mb-2">Manage registrations in one place</h1>
-            <p class="text-muted-soft mb-0">Search, filter, update, and remove student records with upload support and
+            <p class="text-muted mb-0">Search, filter, update, and remove student records with upload support and
                 validation.</p>
         </div>
         <div class="d-flex gap-2 flex-wrap">
-            <a href="{% url 'student-create' %}" class="btn btn-accent px-4">Register Student</a>
-            <a href="{% url 'course-create' %}" class="btn btn-ghost px-4">Add Course</a>
+            <a href="{% url 'student-create' %}" class="btn btn-primary px-4">Register Student</a>
+            <a href="{% url 'course-create' %}" class="btn btn-outline-secondary px-4">Add Course</a>
         </div>
     </div>
 
     <form class="row g-3 align-items-end mb-4" method="get">
         <div class="col-lg-5">
-            <label for="q" class="form-label text-muted-soft">Search by student or course</label>
+            <label for="q" class="form-label text-muted">Search by student or course</label>
             <input type="text" class="form-control" id="q" name="q" value="{{ query }}"
                 placeholder="Type a student name or course">
         </div>
         <div class="col-md-3 col-lg-3">
-            <label for="course" class="form-label text-muted-soft">Course</label>
+            <label for="course" class="form-label text-muted">Course</label>
             <select id="course" name="course" class="form-select">
                 <option value="">All courses</option>
                 {% for course in courses %}
@@ -34,7 +34,7 @@
             </select>
         </div>
         <div class="col-md-2 col-lg-2">
-            <label for="status" class="form-label text-muted-soft">Status</label>
+            <label for="status" class="form-label text-muted">Status</label>
             <select id="status" name="status" class="form-select">
                 <option value="">All</option>
                 <option value="active" {% if selected_status == 'active' %}selected{% endif %}>Active</option>
@@ -42,12 +42,12 @@
             </select>
         </div>
         <div class="col-md-2 col-lg-2 d-grid">
-            <button type="submit" class="btn btn-accent">Apply</button>
+            <button type="submit" class="btn btn-primary">Apply</button>
         </div>
     </form>
 
     <div class="table-responsive">
-        <table class="table table-darkish align-middle mb-0">
+        <table class="table align-middle mb-0">
             <thead>
                 <tr>
                     <th>Photo</th>
@@ -67,12 +67,10 @@
                     <td>
                         {% if student.st_photo %}
                         <img src="{{ student.st_photo.url }}" alt="{{ student.st_name }}"
-                            class="rounded-circle border border-2 border-light" width="52" height="52"
-                            style="object-fit: cover;">
+                            class="rounded-circle border border-2 border-light" width="52" height="52">
                         {% else %}
                         <img src="{% static 'images/default-avatar.svg' %}" alt="Default profile"
-                            class="rounded-circle border border-2 border-light" width="52" height="52"
-                            style="object-fit: cover;">
+                            class="rounded-circle border border-2 border-light" width="52" height="52">
                         {% endif %}
                     </td>
                     <td class="fw-semibold">{{ student.st_name }}</td>
@@ -83,9 +81,9 @@
                     <td>{{ student.admition_date }}</td>
                     <td>
                         {% if student.st_active == 'active' %}
-                        <span class="badge bg-success badge-soft">Active</span>
+                        <span class="badge bg-success">Active</span>
                         {% else %}
-                        <span class="badge bg-secondary badge-soft">Inactive</span>
+                        <span class="badge bg-secondary">Inactive</span>
                         {% endif %}
                     </td>
                     <td class="text-end">
@@ -97,7 +95,7 @@
                 </tr>
                 {% empty %}
                 <tr>
-                    <td colspan="9" class="text-center py-5 text-muted-soft">No student records found.</td>
+                    <td colspan="9" class="text-center py-5 text-muted">No student records found.</td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -106,7 +104,7 @@
 
     {% if students.paginator.num_pages > 1 %}
     <div class="d-flex justify-content-between align-items-center flex-wrap gap-3 mt-4">
-        <p class="mb-0 text-muted-soft">
+        <p class="mb-0 text-muted">
             Showing page {{ students.number }} of {{ students.paginator.num_pages }}
         </p>
         <nav>
