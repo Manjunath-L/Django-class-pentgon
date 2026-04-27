@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all_doctors</title>
+    <style>
+        .continer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .doctor-profile {
+            background-color: beige;
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+        }
+
+        .doctor-profile img {
+            /* max-width: 100%; */
+            height: auto;
+            border-radius: 50%;
+            width: 0 auto;
+        }
+
+        .doctor-profile button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="continer">
+        {% for doctor in doctors %}
+        <div class="doctor-profile">
+            <img src="{{ doctor.doctor_photo.url }}" alt="{{ doctor.doctor_name }}'s photo" width="200">
+            <h2>{{ doctor.doctor_name }}</h2>
+            <p>Specialization: {{ doctor.sepcialization }}</p>
+            <p>Years of Experience: {{ doctor.year_of_experience }}</p>
+            <p>Contact Number: {{ doctor.contect_number }}</p>
+            {% if doctor.doctor_photo %}
+            {% else %}
+            <p>No photo available</p>
+            {% endif %}
+            <br><a href="{% url 'update_doctor' doctor.id %}"><button>Edit</button></a>
+            <a href="{% url 'delete_doctor' doctor.id %}"><button>Delete</button></a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+
+</html>

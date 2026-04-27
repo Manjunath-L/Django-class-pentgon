@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all users</title>
+</head>
+
+<body>
+    {% if error_message %}
+    <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th></th>
+        </tr>
+        {% for i in users %}
+        <tr>
+            <td>{{ i.id }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.age }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.ph_no }}</td>
+            <td><a href="{% url 'module_forms:update_user' i.id %}"><button>Edit</button></a></td>
+            <td><a href="{% url 'module_forms:delete_user' i.id %}"><button>Delete</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>

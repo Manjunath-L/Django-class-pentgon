@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-Mobiles</title>
+</head>
+
+<body>
+    <h1>All Mobiles</h1>
+    <table>
+        <tr>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Price</th>
+            <th>ROM</th>
+            <th>RAM</th>
+            <th>Battery</th>
+        </tr>
+        {% for mobile in mobiles %}
+        <tr>
+            <td>{{ mobile.brand }}</td>
+            <td>{{ mobile.model }}</td>
+            <td>{{ mobile.price }}</td>
+            <td>{{ mobile.rom }}</td>
+            <td>{{ mobile.ram }}</td>
+            <td>{{ mobile.battery }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
