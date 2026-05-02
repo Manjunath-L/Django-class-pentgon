@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<H1>Welcome to Our Site {{ user.username }}</H1>
+<p>This is the home page.</p>
+<a href="{% url 'account:signout' %}"> <button>Sign Out</button></a>
+<a href="{% url 'account:passwordchange' user.id %}"> <button>Change Password</button></a>
+<a href="{% url 'account:request_password_reset' %}"> <button>Reset Password</button></a>
+{% endblock %}

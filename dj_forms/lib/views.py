@@ -99,7 +99,7 @@ def delete_book(request, id):
     if request.method == "POST":
         book.delete()
         messages.add_message(
-            request, messages.SUCCESS, f"Book '{book.title}' deleted successfully."
+            request, messages.ERROR, f"Book '{book.title}' deleted successfully."
         )
         return redirect("lib:show_books")
     return render(request, "delete_book.html", {"book": book})

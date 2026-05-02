@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for message in messages %}
+<p class="alert alert-{{ message.tags }}">{{ message }}</p>
+{% endfor %}
+<h1 class="text-center">class table</h1>
+<table class="table table-striped table-hover w-50 m-auto">
+    <tr>
+        <th>Name</th>
+        <th>Teacher</th>
+        <th>No of Students</th>
+        <th>Batch</th>
+        <th>Starts At</th>
+        <th>Ends At</th>
+        <th colspan="2">action</th>
+    </tr>
+    {% for class in classes %}
+    <tr>
+        <td>{{ class.name }}</td>
+        <td>{{ class.teacher }}</td>
+        <td>{{ class.no_students}}</td>
+        <td>{{ class.batch }}</td>
+        <td>{{ class.starts_at|date:"Y-m-d H:i" }}</td>
+        <td>{{ class.ends_at|date:"Y-m-d H:i" }}</td>
+        <td><a href="{% url 'update_class' class.id %}"><button class="btn btn-info">Edit</button></a></td>
+        <td><a href="{% url 'delete_class' class.id %}"><button class="btn btn-warning">Delete</button></a></td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'add_class' %}" class="btn btn-primary">Add Class</a>
+{% endblock %}

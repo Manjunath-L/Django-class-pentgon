@@ -57,3 +57,9 @@ def delete_student(request, pk):
         return redirect("app:show_student")
     context = {"student": stu}
     return render(request, "delete_student.html", context)
+
+
+def forms(request):
+    student = Student.objects.get(pk=1)
+    context = {"form": student}
+    return render(request, "forms.html", context)
