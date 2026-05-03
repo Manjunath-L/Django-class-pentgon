@@ -24,8 +24,8 @@
         <td>{{ class.batch }}</td>
         <td>{{ class.starts_at|date:"Y-m-d H:i" }}</td>
         <td>{{ class.ends_at|date:"Y-m-d H:i" }}</td>
-        <td><a href="{% url 'update_class' class.id %}"><button class="btn btn-info">Edit</button></a></td>
-        <td><a href="{% url 'delete_class' class.id %}"><button class="btn btn-warning">Delete</button></a></td>
+        <td><a href="{% url 'update_class' class.slug %}"><button class="btn btn-info">Edit</button></a></td>
+        <td><a href="{% url 'delete_class' class.slug %}"><button class="btn btn-warning">Delete</button></a></td>
     </tr>
     {% endfor %}
 </table>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Class
 from .forms import ClassForm
 from django.contrib import messages
@@ -26,8 +26,8 @@ def add_class(request):
     return render(request, "add_class.html", context)
 
 
-def update_class(request, id):
-    class_obj = Class.objects.get(id=id)
+def update_class(request, slug):
+    class_obj = get_object_or_404(Class, slug=slug)
     form = ClassForm(instance=class_obj)
     if request.method == "POST":
         fm = ClassForm(request.POST, instance=class_obj)
@@ -41,8 +41,8 @@ def update_class(request, id):
     return render(request, "update_class.html", context)
 
 
-def delete_class(request, id):
-    class_obj = Class.objects.get(id=id)
+def delete_class(request, slug):
+    class_obj = get_object_or_404(Class, slug=slug)
     if request.method == "POST":
         class_obj.delete()
         messages.error(request, "Class deleted successfully!")

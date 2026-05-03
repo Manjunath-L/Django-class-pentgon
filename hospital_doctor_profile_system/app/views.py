@@ -26,8 +26,8 @@ def all_doctor(request):
     return render(request, "all_doctors.html", context)
 
 
-def update_doctor(request, pk):
-    doctor = Doctor.objects.get(id=pk)
+def update_doctor(request, pk, slug):
+    doctor = Doctor.objects.get(id=pk, slug=slug)
     form = DoctorForm(instance=doctor)
     if request.method == "POST":
         form = DoctorForm(request.POST, request.FILES, instance=doctor)
@@ -36,12 +36,12 @@ def update_doctor(request, pk):
             return redirect("all_doctor")
         context = {"form": form}
         return render(request, "update_doctor.html", context)
-    context = {"form": DoctorForm(instance=doctor)}
+    context = {"form": DoctorForm(instance=doctor) }
     return render(request, "update_doctor.html", context)
 
 
-def delete_doctor(request, pk):
-    doctor = Doctor.objects.get(id=pk)
+def delete_doctor(request, pk, slug):
+    doctor = Doctor.objects.get(id=pk, slug=slug)
     if request.method == "POST":
         doctor.delete()
         return redirect("all_doctor")

@@ -5,9 +5,10 @@ from django.db import models
 
 class Doctor(models.Model):
     doctor_name = models.CharField(max_length=100)
-    sepcialization = models.CharField(max_length=200)
+    specialization = models.CharField(max_length=200)
+    slug = models.SlugField(max_length=120, unique=True, blank=True)
     year_of_experience = models.IntegerField()
-    contect_number = models.IntegerField()
+    contact_number = models.IntegerField()
     doctor_photo = models.ImageField(
         upload_to="doctor_profiles/", blank=True, null=True
     )

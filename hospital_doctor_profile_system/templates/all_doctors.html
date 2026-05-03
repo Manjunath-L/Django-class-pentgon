@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>all_doctors</title>
     <style>
-        .continer {
+        .container {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
@@ -39,20 +39,20 @@
 </head>
 
 <body>
-    <div class="continer">
+    <div class="container">
         {% for doctor in doctors %}
         <div class="doctor-profile">
             <img src="{{ doctor.doctor_photo.url }}" alt="{{ doctor.doctor_name }}'s photo" width="200">
             <h2>{{ doctor.doctor_name }}</h2>
-            <p>Specialization: {{ doctor.sepcialization }}</p>
+            <p>Specialization: {{ doctor.specialization }}</p>
             <p>Years of Experience: {{ doctor.year_of_experience }}</p>
-            <p>Contact Number: {{ doctor.contect_number }}</p>
+            <p>Contact Number: {{ doctor.contact_number }}</p>
             {% if doctor.doctor_photo %}
             {% else %}
             <p>No photo available</p>
             {% endif %}
-            <br><a href="{% url 'update_doctor' doctor.id %}"><button>Edit</button></a>
-            <a href="{% url 'delete_doctor' doctor.id %}"><button>Delete</button></a>
+            <br><a href="{% url 'update_doctor' doctor.id doctor.slug %}"><button>Edit</button></a>
+            <a href="{% url 'delete_doctor' doctor.id doctor.slug %}"><button>Delete</button></a>
         </div>
         {% endfor %}
     </div>
